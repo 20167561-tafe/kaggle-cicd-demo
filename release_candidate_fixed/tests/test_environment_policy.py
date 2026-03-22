@@ -1,5 +1,5 @@
 from __future__ import annotations
-#
+
 import sys
 from importlib.metadata import version
 
