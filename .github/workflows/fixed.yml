@@ -20,7 +20,7 @@ jobs:
       - name: Install dependencies
         run: |
           cd release_candidate_fixed
-          PYTHONPATH=. pytest
+          
           pip install -r requirements.txt
           pip install -r requirements-dev.txt
 
@@ -37,4 +37,5 @@ jobs:
       - name: Tests
         run: |
           cd release_candidate_fixed
+          PYTHONPATH=. pytest
           pytest
