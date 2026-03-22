@@ -1,1 +1,39 @@
+name: Test Bad Candidate
 
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test-bad:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          cd release_candidate_bad
+          pip install -r requirements.txt
+          pip install -r requirements-dev.txt
+
+      - name: Lint
+        run: |
+          cd release_candidate_bad
+          ruff check .
+
+      - name: Type check
+        run: |
+          cd release_candidate_bad
+          mypy src
+
+      - name: Tests
+        run: |
+          cd release_candidate_bad
+          pytest
