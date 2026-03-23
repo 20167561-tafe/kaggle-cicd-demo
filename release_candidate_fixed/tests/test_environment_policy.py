@@ -6,7 +6,7 @@ from importlib.metadata import version
 from packaging.version import Version
 
 MIN_VERSIONS = {
-    "pandas": "3.0.0",
+    "pandas": "1.5.3",
     "numpy": "2.4.3",
     "scikit-learn": "1.8.0",
 }
